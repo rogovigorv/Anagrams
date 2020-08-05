@@ -6,78 +6,78 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class AnagramMakerTest {
+class AnagramMakerTest {
 
     private final AnagramMaker anagramSentenceTest = new AnagramMaker();
 
     @Test
     void makeAnagramShouldReturnAnagramOfOneWordWithOneNonLetterSymbol() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("dty&b"));
+        final String actual = anagramSentenceTest.makeAnagram("dty&b");
         final String expected = "byt&d";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfOneWordWithOneLetterSymbol() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("!a#&%"));
+        final String actual = anagramSentenceTest.makeAnagram("!a#&%");
         final String expected = "!a#&%";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfOneWordWithTheSameLetterSymbols() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("aaa%a%"));
+        final String actual = anagramSentenceTest.makeAnagram("aaa%a%");
         final String expected = "aaa%a%";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfOneWordWithTheSameNonLetterSymbols() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("!!!!"));
+        final String actual = anagramSentenceTest.makeAnagram("!!!!");
         final String expected = "!!!!";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfOneWordWithTheDifferentLetterSymbols() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("abcdef"));
+        final String actual = anagramSentenceTest.makeAnagram("abcdef");
         final String expected = "fedcba";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfOneWordWithTheDifferentNonLetterSymbols() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("!@#$%"));
+        final String actual = anagramSentenceTest.makeAnagram("!@#$%");
         final String expected = "!@#$%";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfOneWordWithTheDifferentLetterSymbolsInUpperAndLowerCases() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("aBcDeF"));
+        final String actual = anagramSentenceTest.makeAnagram("aBcDeF");
         final String expected = "FeDcBa";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfTwoWordsWithOnlyLetterSymbols() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("abcd htr"));
+        final String actual = anagramSentenceTest.makeAnagram("abcd htr");
         final String expected = "dcba rth";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfTwoWordsWithOnlyNonLetterSymbols() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("!@#$ %^&"));
+        final String actual = anagramSentenceTest.makeAnagram("!@#$ %^&");
         final String expected = "!@#$ %^&";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
     void makeAnagramShouldReturnAnagramOfThreeWordsWithDifferentSymbols() {
-        final Matcher<String> actual = equalTo(anagramSentenceTest.makeAnagram("abcd! Fgh% jK#ln"));
+        final String actual = anagramSentenceTest.makeAnagram("abcd! Fgh% jK#ln");
         final String expected = "dcba! hgF% nl#Kj";
-        assertThat(expected, actual);
+        assertThat(actual , equalTo(expected));
     }
 
     @Test
